@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-script minSpecVersion="1.000000" authoringTool="com.apple.PackageMaker" authoringToolVersion="3.0.3" authoringToolBuild="174">
+    <title>Latin Dictionary</title>
+    <options customize="never" allow-external-scripts="no" rootVolumeOnly="true"/>
+    <installation-check script="pm_install_check();"/>
+    <script>function pm_install_check() {
+  if(!(system.version.ProductVersion >= '10.5')) {
+    my.result.title = 'Mac OS 10.5+';
+    my.result.message = 'Mac OS 10.5 or higher required. Almeno Mac OS 10.5 richiesto.';
+    my.result.type = 'Fatal';
+    return false;
+  }
+  return true;
+}
+</script>
+    <welcome language="en" mime-type="text/rtf"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf430
+{\fonttbl\f0\fnil\fcharset0 Baskerville-SemiBold;\f1\fnil\fcharset0 Baskerville;}
+{\colortbl;\red255\green255\blue255;\red0\green30\blue230;}
+\deftab720
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f0\b\fs48 \cf0 Latin Dictionary\
+\pard\pardeftab720\sa380\ql\qnatural
+\cf0 Latin-English English-Latin\
+\pard\pardeftab720\ql\qnatural
+
+\f1\b0\fs32 \cf0 This Mac OS X Dictionary.app plugin is based on {\field{\*\fldinst{HYPERLINK "mailto:whitaker@erols.com"}}{\fldrslt \cf2 \ul \ulc2 William Whitaker}}'s Latin translation dictionary {\field{\*\fldinst{HYPERLINK "http://users.erols.com/whitaker/wordsdoc.htm"}}{\fldrslt \cf2 \ul \ulc2 WORDS}}. One can find the latest version {\field{\*\fldinst{HYPERLINK "http://homepage.mac.com/gery/latin.dmg"}}{\fldrslt \cf2 \ul \ulc2 here}} and the source code {\field{\*\fldinst{HYPERLINK "http://homepage.mac.com/gery/latin_source.tar.bz2"}}{\fldrslt here}}.}]]></welcome>
+    <welcome language="it" mime-type="text/rtf"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf430
+{\fonttbl\f0\fnil\fcharset0 Baskerville-SemiBold;\f1\fnil\fcharset0 Baskerville;}
+{\colortbl;\red255\green255\blue255;\red0\green30\blue230;}
+\deftab720
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f0\b\fs48 \cf0 Dizionario Latino\
+\pard\pardeftab720\sa380\ql\qnatural
+\cf0 Latino-Inglese Inglese-Latino\
+\pard\pardeftab720\ql\qnatural
+
+\f1\b0\fs32 \cf0 Questo plug-in della Dictionary.app di Mac OS X \'e8 basato sul dizionario di traduzione {\field{\*\fldinst{HYPERLINK "http://users.erols.com/whitaker/wordsdoc.htm"}}{\fldrslt \cf2 \ul \ulc2 WORDS}} di {\field{\*\fldinst{HYPERLINK "mailto:whitaker@erols.com"}}{\fldrslt \cf2 \ul \ulc2 William Whitaker}}. Si pu\'f2 trovare l'ultima versione {\field{\*\fldinst{HYPERLINK "http://homepage.mac.com/gery/latin.dmg"}}{\fldrslt \cf2 \ul \ulc2 qui}} e la codice sorgente {\field{\*\fldinst{HYPERLINK "http://homepage.mac.com/gery/latin_source.tar.bz2"}}{\fldrslt qui}}.}]]></welcome>
+    <readme language="en" mime-type="text/rtf"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf430
+{\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\fs26 \cf0 This installer installs Latin.dictionary in your /Library/Dictionaries/ folder. When the installer finishes installing, Dictionary.app will start automatically. If the Latin dictionary does not appear, make sure Latin is checked in the Dictionary.app preferences.}]]></readme>
+    <readme language="it" mime-type="text/rtf"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf430
+{\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\fs26 \cf0 Questo installa Latin.dictionary nel tuo folder /Library/Dictionaries/. Quando finisce, Dictionary.app si avvier\'e0 automaticamente. Se il dizionario Latin non appare, controlla che Latin \'e8 attivo nelle preferenze di Dictionary.app.}]]></readme>
+    <choices-outline>
+        <line choice="choice6"/>
+        <line choice="choice0"/>
+        <line choice="choice7"/>
+    </choices-outline>
+    <choice id="choice6" title="Latin Dictionary Preflight" start_visible="false">
+        <pkg-ref id="com.apple.Dictionary.latinDictionary.preflight.pkg"/>
+    </choice>
+    <choice id="choice0" title="Dictionaries">
+        <pkg-ref id="com.apple.Dictionary.Latin.pkg"/>
+    </choice>
+    <choice id="choice7" title="Latin Dictionary Postflight" start_visible="false">
+        <pkg-ref id="com.apple.Dictionary.latinDictionary.postflight.pkg"/>
+    </choice>
+    <pkg-ref id="com.apple.Dictionary.latinDictionary.preflight.pkg" installKBytes="0" version="1.0" auth="Root">file:./Contents/Packages/latinDictionaryPreflight.pkg</pkg-ref>
+    <pkg-ref id="com.apple.Dictionary.Latin.pkg" installKBytes="34376" version="1.1" auth="Root">file:./Contents/Packages/latin.pkg</pkg-ref>
+    <pkg-ref id="com.apple.Dictionary.latinDictionary.postflight.pkg" installKBytes="0" version="1.0" auth="Root">file:./Contents/Packages/latinDictionaryPostflight.pkg</pkg-ref>
+</installer-script>

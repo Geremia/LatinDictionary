@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+PKMKPIDFORAPP="$1/Contents/Resources/pkmkpidforapp"
+PKMKSENDAE="$1/Contents/Resources/pkmksendae"
+
+RESULT=`"$PKMKPIDFORAPP" 'com.apple.Dictionary' 'Dictionary.app'`
+if [ $RESULT -gt 0 ]; then
+	RESULT=`"$PKMKSENDAE" $RESULT 'quit'`
+fi
+
+exit 0

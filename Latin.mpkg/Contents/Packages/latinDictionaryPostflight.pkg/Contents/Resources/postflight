@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+RESULT=`/usr/bin/open '/Applications/Dictionary.app'`
+
+exit 0
