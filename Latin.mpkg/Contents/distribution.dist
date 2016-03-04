@@ -4,12 +4,6 @@
     <options customize="never" allow-external-scripts="no" rootVolumeOnly="true"/>
     <installation-check script="pm_install_check();"/>
     <script>function pm_install_check() {
-  if(!(system.version.ProductVersion >= '10.5')) {
-    my.result.title = 'Mac OS 10.5+';
-    my.result.message = 'Mac OS 10.5 or higher required. Almeno Mac OS 10.5 richiesto.';
-    my.result.type = 'Fatal';
-    return false;
-  }
   return true;
 }
 </script>
